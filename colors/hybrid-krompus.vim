@@ -1,21 +1,24 @@
-" File:       hybrid.vim
-" Maintainer: Andrew Wong (w0ng)
+" File:       hybrid-krompus.vim
+" Maintainer: Michael Hoang (Enzime)
 " URL:        https://github.com/w0ng/vim-hybrid
-" Modified:   27 Jan 2013 07:33 AM AEST
+" Modified:   29 May 2016 05:44 PM AEST
 " License:    MIT
 
 " Description:"{{{
 " ----------------------------------------------------------------------------
-" The default RGB colour palette is taken from Tomorrow-Night.vim:
-" https://github.com/chriskempson/vim-tomorrow-theme
+" The default RGB colour palette was first made by krompus:
+" https://github.com/krompus/dotfiles
 "
-" The reduced RGB colour palette is taken from Codecademy's online editor:
-" https://www.codecademy.com/learn
+" The current colour scheme can be found here:
+" https://github.com/Enzime/dotfiles-termite
+"
+" Based off the original hybrid.vim:
+" https://github.com/w0ng/vim-hybrid
 "
 " The syntax highlighting scheme is taken from jellybeans.vim:
 " https://github.com/nanotech/jellybeans.vim
 "
-" The is code taken from solarized.vim:
+" The code taken from solarized.vim:
 " https://github.com/altercation/vim-colors-solarized
 
 "}}}
@@ -38,31 +41,10 @@
 "
 "         https://gist.github.com/3278077
 "
-"     or alternatively, add the reduced contrast palette to ~/.Xresources:
-"
-"         https://gist.github.com/w0ng/16e33902508b4a0350ae
-"
 " 2.  Add to ~/.vimrc:
 "
-"         let g:hybrid_custom_term_colors = 1
-"         let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-"         colorscheme hybrid
+"         colorscheme hybrid-krompus
 "
-" For OSX users (iTerm):
-"
-" 1.  Import the default colour preset into iTerm:
-"
-"         https://raw.githubusercontent.com/w0ng/dotfiles/master/iterm2/hybrid.itermcolors
-"
-"     or alternatively, import the reduced contrast color preset into iTerm:
-"
-"         https://raw.githubusercontent.com/w0ng/dotfiles/master/iterm2/hybrid-reduced-contrast.itermcolors
-"
-" 2.  Add to ~/.vimrc:
-"
-"         let g:hybrid_custom_term_colors = 1
-"         let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-"         colorscheme hybrid
 
 "}}}
 " Initialisation:"{{{
@@ -76,7 +58,7 @@ endif
 
 let s:style = &background
 
-let g:colors_name = "hybrid"
+let g:colors_name = "hybrid-krompus"
 
 "}}}
 " GUI And Cterm Palettes:"{{{
@@ -84,94 +66,54 @@ let g:colors_name = "hybrid"
 
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
-if exists("g:hybrid_reduced_contrast") && g:hybrid_reduced_contrast == 1
-  let s:gui_background = "#232c31"
-  let s:gui_selection  = "#425059"
-  let s:gui_line       = "#2d3c46"
-  let s:gui_comment    = "#6c7a80"
-else
-  let s:gui_background = "#1d1f21"
-  let s:gui_selection  = "#373b41"
-  let s:gui_line       = "#282a2e"
-  let s:gui_comment    = "#707880"
-endif
-
-let s:palette.gui.background = { 'dark' : s:gui_background , 'light' : "#e4e4e4" }
-let s:palette.gui.foreground = { 'dark' : "#c5c8c6"        , 'light' : "#000000" }
-let s:palette.gui.selection  = { 'dark' : s:gui_selection  , 'light' : "#bcbcbc" }
-let s:palette.gui.line       = { 'dark' : s:gui_line       , 'light' : "#d0d0d0" }
-let s:palette.gui.comment    = { 'dark' : s:gui_comment    , 'light' : "#5f5f5f" }
-let s:palette.gui.red        = { 'dark' : "#cc6666"        , 'light' : "#5f0000" }
-let s:palette.gui.orange     = { 'dark' : "#de935f"        , 'light' : "#875f00" }
-let s:palette.gui.yellow     = { 'dark' : "#f0c674"        , 'light' : "#5f5f00" }
-let s:palette.gui.green      = { 'dark' : "#b5bd68"        , 'light' : "#005f00" }
-let s:palette.gui.aqua       = { 'dark' : "#8abeb7"        , 'light' : "#005f5f" }
-let s:palette.gui.blue       = { 'dark' : "#81a2be"        , 'light' : "#00005f" }
-let s:palette.gui.purple     = { 'dark' : "#b294bb"        , 'light' : "#5f005f" }
-let s:palette.gui.window     = { 'dark' : "#303030"        , 'light' : "#9e9e9e" }
-let s:palette.gui.darkcolumn = { 'dark' : "#1c1c1c"        , 'light' : "#808080" }
-let s:palette.gui.addbg      = { 'dark' : "#5F875F"        , 'light' : "#d7ffd7" }
-let s:palette.gui.addfg      = { 'dark' : "#d7ffaf"        , 'light' : "#005f00" }
-let s:palette.gui.changebg   = { 'dark' : "#5F5F87"        , 'light' : "#d7d7ff" }
-let s:palette.gui.changefg   = { 'dark' : "#d7d7ff"        , 'light' : "#5f005f" }
-let s:palette.gui.delbg      = { 'dark' : "#cc6666"        , 'light' : "#ffd7d7" }
-let s:palette.gui.darkblue   = { 'dark' : "#00005f"        , 'light' : "#d7ffd7" }
-let s:palette.gui.darkcyan   = { 'dark' : "#005f5f"        , 'light' : "#005f00" }
-let s:palette.gui.darkred    = { 'dark' : "#5f0000"        , 'light' : "#d7d7ff" }
-let s:palette.gui.darkpurple = { 'dark' : "#5f005f"        , 'light' : "#5f005f" }
-
-if exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
-  let s:cterm_foreground = "15"  " White
-  let s:cterm_selection  = "8"   " DarkGrey
-  let s:cterm_line       = "0"   " Black
-  let s:cterm_comment    = "7"   " LightGrey
-  let s:cterm_red        = "9"   " LightRed
-  let s:cterm_orange     = "3"   " DarkYellow
-  let s:cterm_yellow     = "11"  " LightYellow
-  let s:cterm_green      = "10"  " LightGreen
-  let s:cterm_aqua       = "14"  " LightCyan
-  let s:cterm_blue       = "12"  " LightBlue
-  let s:cterm_purple     = "13"  " LightMagenta
-  let s:cterm_delbg      = "9"   " LightRed
-else
-  let s:cterm_foreground = "250"
-  let s:cterm_selection  = "237"
-  let s:cterm_line       = "235"
-  let s:cterm_comment    = "243"
-  let s:cterm_red        = "167"
-  let s:cterm_orange     = "173"
-  let s:cterm_yellow     = "221"
-  let s:cterm_green      = "143"
-  let s:cterm_aqua       = "109"
-  let s:cterm_blue       = "110"
-  let s:cterm_purple     = "139"
-  let s:cterm_delbg      = "167"
-endif
+let s:palette.gui.background = { 'dark' : "#1c1c1c"            , 'light' : "#e4e4e4" }
+let s:palette.gui.foreground = { 'dark' : "#fff5ed"            , 'light' : "#000000"  }
+let s:palette.gui.window     = { 'dark' : "#303030"            , 'light' : "#9e9e9e" }
+let s:palette.gui.selection  = { 'dark' : "#73645d"            , 'light' : "#bcbcbc" }
+let s:palette.gui.line       = { 'dark' : "#0a0a0a"            , 'light' : "#d0d0d0" }
+let s:palette.gui.comment    = { 'dark' : "#b6afab"            , 'light' : "#5f5f5f"  }
+let s:palette.gui.red        = { 'dark' : "#ff3f3d"            , 'light' : "#5f0000"  }
+let s:palette.gui.orange     = { 'dark' : "#fa6800"            , 'light' : "#875f00"  }
+let s:palette.gui.yellow     = { 'dark' : "#ffa726"            , 'light' : "#5f5f00"  }
+let s:palette.gui.green      = { 'dark' : "#c1ff05"            , 'light' : "#005f00"  }
+let s:palette.gui.aqua       = { 'dark' : "#96ffe3"            , 'light' : "#005f5f"  }
+let s:palette.gui.blue       = { 'dark' : "#00ccff"            , 'light' : "#00005f"  }
+let s:palette.gui.purple     = { 'dark' : "#ff65a0"            , 'light' : "#5f005f"  }
+let s:palette.gui.darkcolumn = { 'dark' : "#1c1c1c"            , 'light' : "#808080" }
+let s:palette.gui.addbg      = { 'dark' : "#5f875f"            , 'light' : "#d7ffd7" }
+let s:palette.gui.addfg      = { 'dark' : "#d7ffaf"            , 'light' : "#005f00"  }
+let s:palette.gui.changebg   = { 'dark' : "#5f5f87"            , 'light' : "#d7d7ff" }
+let s:palette.gui.changefg   = { 'dark' : "#d7d7ff"            , 'light' : "#5f005f"  }
+let s:palette.gui.delbg      = { 'dark' : "#ff3f3d"            , 'light' : "#ffd7d7" }
+let s:palette.gui.darkblue   = { 'dark' : "#00005f"            , 'light' : "#d7ffd7" }
+let s:palette.gui.darkcyan   = { 'dark' : "#005f87"            , 'light' : "#005f00"  }
+let s:palette.gui.darkred    = { 'dark' : "#5f0000"            , 'light' : "#d7d7ff" }
+let s:palette.gui.darkpurple = { 'dark' : "#5f005f"            , 'light' : "#5f005f"  }
 
 let s:palette.cterm.background = { 'dark' : "234"              , 'light' : "254" }
-let s:palette.cterm.foreground = { 'dark' : s:cterm_foreground , 'light' : "16"  }
+let s:palette.cterm.foreground = { 'dark' : "15"               , 'light' : "16"  }
 let s:palette.cterm.window     = { 'dark' : "236"              , 'light' : "247" }
-let s:palette.cterm.selection  = { 'dark' : s:cterm_selection  , 'light' : "250" }
-let s:palette.cterm.line       = { 'dark' : s:cterm_line       , 'light' : "252" }
-let s:palette.cterm.comment    = { 'dark' : s:cterm_comment    , 'light' : "59"  }
-let s:palette.cterm.red        = { 'dark' : s:cterm_red        , 'light' : "52"  }
-let s:palette.cterm.orange     = { 'dark' : s:cterm_orange     , 'light' : "94"  }
-let s:palette.cterm.yellow     = { 'dark' : s:cterm_yellow     , 'light' : "58"  }
-let s:palette.cterm.green      = { 'dark' : s:cterm_green      , 'light' : "22"  }
-let s:palette.cterm.aqua       = { 'dark' : s:cterm_aqua       , 'light' : "23"  }
-let s:palette.cterm.blue       = { 'dark' : s:cterm_blue       , 'light' : "17"  }
-let s:palette.cterm.purple     = { 'dark' : s:cterm_purple     , 'light' : "53"  }
+let s:palette.cterm.selection  = { 'dark' : "8"                , 'light' : "250" }
+let s:palette.cterm.line       = { 'dark' : "0"                , 'light' : "252" }
+let s:palette.cterm.comment    = { 'dark' : "7"                , 'light' : "59"  }
+let s:palette.cterm.red        = { 'dark' : "9"                , 'light' : "52"  }
+let s:palette.cterm.orange     = { 'dark' : "3"                , 'light' : "94"  }
+let s:palette.cterm.yellow     = { 'dark' : "11"               , 'light' : "58"  }
+let s:palette.cterm.green      = { 'dark' : "10"               , 'light' : "22"  }
+let s:palette.cterm.aqua       = { 'dark' : "14"               , 'light' : "23"  }
+let s:palette.cterm.blue       = { 'dark' : "12"               , 'light' : "17"  }
+let s:palette.cterm.purple     = { 'dark' : "13"               , 'light' : "53"  }
 let s:palette.cterm.darkcolumn = { 'dark' : "234"              , 'light' : "244" }
 let s:palette.cterm.addbg      = { 'dark' : "65"               , 'light' : "194" }
 let s:palette.cterm.addfg      = { 'dark' : "193"              , 'light' : "22"  }
 let s:palette.cterm.changebg   = { 'dark' : "60"               , 'light' : "189" }
 let s:palette.cterm.changefg   = { 'dark' : "189"              , 'light' : "53"  }
-let s:palette.cterm.delbg      = { 'dark' : s:cterm_delbg      , 'light' : "224" }
+let s:palette.cterm.delbg      = { 'dark' : "9"                , 'light' : "224" }
 let s:palette.cterm.darkblue   = { 'dark' : "17"               , 'light' : "194" }
 let s:palette.cterm.darkcyan   = { 'dark' : "24"               , 'light' : "22"  }
 let s:palette.cterm.darkred    = { 'dark' : "52"               , 'light' : "189" }
 let s:palette.cterm.darkpurple = { 'dark' : "53"               , 'light' : "53"  }
-
+"
 "}}}
 " Formatting Options:"{{{
 " ----------------------------------------------------------------------------
@@ -330,13 +272,7 @@ exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
 hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
 "   WildMenu"
 
-" Use defined custom background colour for terminal Vim.
-if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
-  let s:bg_normal = s:bg_none
-else
-  let s:bg_normal = s:bg_background
-endif
-exe "hi! Normal"        .s:fg_foreground  .s:bg_normal      .s:fmt_none
+exe "hi! Normal"        .s:fg_foreground  .s:bg_none          .s:fmt_none
 
 "}}}
 " Generic Syntax Highlighting: (see :help group-name)"{{{

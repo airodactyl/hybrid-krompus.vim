@@ -1,15 +1,14 @@
-# hybrid.vim
+# hybrid-krompus.vim
 
 A dark colour scheme for Vim that combines the:
 
--   Default palette from [Tomorrow-Night](https://github.com/chriskempson/vim-tomorrow-theme).
--   Reduced contrast palette from [Codecademy](https://www.codecademy.com)'s
-    online editor.
+-   Default palette from [Enzime](https://github.com/Enzime/dotfiles-termite), originally by [krompus](https://github.com/krompus/dotfiles).
 -   Syntax group highlighting scheme from [Jellybeans](https://github.com/nanotech/jellybeans.vim)
 -   Vimscript from [Solarized](https://github.com/altercation/vim-colors-solarized)
 
 ## Updates
 
+-   29/05/2016: Replaced colour scheme with krompus
 -   05/01/2016: Replaced `let g:hybrid_use_Xresources = 1` in favour of __`let
     g:hybrid_custom_term_colors = 1`__
 -   05/01/2016: Added `let g:hybrid_reduced_contrast = 1`
@@ -21,10 +20,10 @@ A dark colour scheme for Vim that combines the:
 
 ## Installation
 
-1.  Copy colors/hybrid.vim to:
+1.  Copy colors/hybrid-krompus.vim to:
 
     ```
-    ~/.vim/colors/hybrid.vim
+    ~/.vim/colors/hybrid-krompus.vim
     ```
 
     or alternatively, use a plugin manger such as
@@ -37,7 +36,7 @@ A dark colour scheme for Vim that combines the:
 
     ```vim
     set background=dark
-    colorscheme hybrid
+    colorscheme hybrid-krompus
     ```
 
 ## Define custom terminal colours (recommended)
