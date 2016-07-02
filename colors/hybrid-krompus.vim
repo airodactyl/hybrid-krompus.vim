@@ -67,28 +67,28 @@ let g:colors_name = "hybrid-krompus"
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
 let s:palette.gui.background = { 'dark' : "#1c1c1c"            , 'light' : "#e4e4e4" }
-let s:palette.gui.foreground = { 'dark' : "#fff5ed"            , 'light' : "#000000"  }
+let s:palette.gui.foreground = { 'dark' : "#fff5ed"            , 'light' : "#000000" }
 let s:palette.gui.window     = { 'dark' : "#303030"            , 'light' : "#9e9e9e" }
 let s:palette.gui.selection  = { 'dark' : "#73645d"            , 'light' : "#bcbcbc" }
 let s:palette.gui.line       = { 'dark' : "#0a0a0a"            , 'light' : "#d0d0d0" }
-let s:palette.gui.comment    = { 'dark' : "#b6afab"            , 'light' : "#5f5f5f"  }
-let s:palette.gui.red        = { 'dark' : "#ff3f3d"            , 'light' : "#5f0000"  }
-let s:palette.gui.orange     = { 'dark' : "#fa6800"            , 'light' : "#875f00"  }
-let s:palette.gui.yellow     = { 'dark' : "#ffa726"            , 'light' : "#5f5f00"  }
-let s:palette.gui.green      = { 'dark' : "#c1ff05"            , 'light' : "#005f00"  }
-let s:palette.gui.aqua       = { 'dark' : "#96ffe3"            , 'light' : "#005f5f"  }
-let s:palette.gui.blue       = { 'dark' : "#00ccff"            , 'light' : "#00005f"  }
-let s:palette.gui.purple     = { 'dark' : "#ff65a0"            , 'light' : "#5f005f"  }
+let s:palette.gui.comment    = { 'dark' : "#b6afab"            , 'light' : "#5f5f5f" }
+let s:palette.gui.red        = { 'dark' : "#ff3f3d"            , 'light' : "#5f0000" }
+let s:palette.gui.orange     = { 'dark' : "#fa6800"            , 'light' : "#875f00" }
+let s:palette.gui.yellow     = { 'dark' : "#ffa726"            , 'light' : "#5f5f00" }
+let s:palette.gui.green      = { 'dark' : "#c1ff05"            , 'light' : "#005f00" }
+let s:palette.gui.aqua       = { 'dark' : "#96ffe3"            , 'light' : "#005f5f" }
+let s:palette.gui.blue       = { 'dark' : "#00ccff"            , 'light' : "#00005f" }
+let s:palette.gui.purple     = { 'dark' : "#ff65a0"            , 'light' : "#5f005f" }
 let s:palette.gui.darkcolumn = { 'dark' : "#1c1c1c"            , 'light' : "#808080" }
 let s:palette.gui.addbg      = { 'dark' : "#5f875f"            , 'light' : "#d7ffd7" }
-let s:palette.gui.addfg      = { 'dark' : "#d7ffaf"            , 'light' : "#005f00"  }
+let s:palette.gui.addfg      = { 'dark' : "#d7ffaf"            , 'light' : "#005f00" }
 let s:palette.gui.changebg   = { 'dark' : "#5f5f87"            , 'light' : "#d7d7ff" }
-let s:palette.gui.changefg   = { 'dark' : "#d7d7ff"            , 'light' : "#5f005f"  }
+let s:palette.gui.changefg   = { 'dark' : "#d7d7ff"            , 'light' : "#5f005f" }
 let s:palette.gui.delbg      = { 'dark' : "#ff3f3d"            , 'light' : "#ffd7d7" }
 let s:palette.gui.darkblue   = { 'dark' : "#00005f"            , 'light' : "#d7ffd7" }
-let s:palette.gui.darkcyan   = { 'dark' : "#005f87"            , 'light' : "#005f00"  }
+let s:palette.gui.darkcyan   = { 'dark' : "#005f87"            , 'light' : "#005f00" }
 let s:palette.gui.darkred    = { 'dark' : "#5f0000"            , 'light' : "#d7d7ff" }
-let s:palette.gui.darkpurple = { 'dark' : "#5f005f"            , 'light' : "#5f005f"  }
+let s:palette.gui.darkpurple = { 'dark' : "#5f005f"            , 'light' : "#5f005f" }
 
 let s:palette.cterm.background = { 'dark' : "234"              , 'light' : "254" }
 let s:palette.cterm.foreground = { 'dark' : "15"               , 'light' : "16"  }
@@ -127,6 +127,25 @@ let s:b      = ",bold"
 let s:u      = ",underline"
 let s:i      = ",italic"
 
+"}}}
+" Neovim Terminal Colors:"{{{
+" ----------------------------------------------------------------------------
+let g:terminal_color_0  = "#0a0a0a"
+let g:terminal_color_1  = "#e61f00"
+let g:terminal_color_2  = "#6dd200"
+let g:terminal_color_3  = "#fa6800"
+let g:terminal_color_4  = "#255ae4"
+let g:terminal_color_5  = "#ff0084"
+let g:terminal_color_6  = "#36fcd3"
+let g:terminal_color_7  = "#b6afab"
+let g:terminal_color_8  = "#73645d"
+let g:terminal_color_9  = "#ff3f3d"
+let g:terminal_color_10 = "#c1ff05"
+let g:terminal_color_11 = "#ffa726"
+let g:terminal_color_12 = "#00ccff"
+let g:terminal_color_13 = "#ff65a0"
+let g:terminal_color_14 = "#96ffe3"
+let g:terminal_color_15 = "#fff5ed"
 "}}}
 " Highlighting Primitives:"{{{
 " ----------------------------------------------------------------------------
